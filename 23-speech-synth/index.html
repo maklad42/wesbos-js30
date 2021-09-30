@@ -38,7 +38,7 @@
   msg.text = document.querySelector('[name="text"]').value;
 
   function populateVoices() {
-    voices = window.getVoices();
+    voices = speechSynthesis.getVoices();
     console.log(voices);
     voicesDropdown.innerHTML = voices
       // .filter(voice => voice.lang.includes('en'))
@@ -69,6 +69,8 @@
   options.forEach(option => option.addEventListener('change', setOption));
   speakButton.addEventListener('click', toggle);
   stopButton.addEventListener('click', () => toggle(false));
+
+  populateVoices();
 </script>
 
 </body>
